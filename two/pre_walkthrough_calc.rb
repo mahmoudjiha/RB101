@@ -45,15 +45,13 @@ first = first.to_f
 second = second.to_f
 
 puts ">>> Calculating..."
-case
-when operator == 1
+case operator
+when 1
   puts first + second
-when operator == 2
+when 2
   puts first - second
-when operator == 3
+when 3
   puts first * second
-when operator == 4 && second == 0.0
-  puts "UNKNOWN!"
-when operator == 4
+when 4
   puts first / second
 end
