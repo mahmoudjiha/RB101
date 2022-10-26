@@ -54,9 +54,9 @@ loop do
 
   prompt("The monthly payment is $#{monthly_payment(loan_amount, apr, years)}!")
 
-  prompt("Would you like to calculate a different monthly payment?")
+  prompt("Would you like to calculate a different monthly payment? (yes/no)")
   continue = gets.chomp.downcase
-  break if continue != y
+  break if continue[0] != 'y'
 end
 
 prompt("Thank you for using the loan calculator. Goodbye!")
