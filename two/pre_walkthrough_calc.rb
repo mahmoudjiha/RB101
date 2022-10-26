@@ -8,43 +8,42 @@
 puts "Hello! I'm a calculator. I can help with simple arithmetic."
 
 def valid?(num)
-  if num == "0"
+  if num == '0'
     true
-  elsif num != "0" && num.to_i != 0
+  elsif num != '0' && num.to_i != 0
     true
-  else
   end
 end
 
-puts ">>> What is the first number you would like to work with?"
+puts '>>> What is the first number you would like to work with?'
 first = gets.chomp
 
-while valid?(first) != true do
-  puts "Please enter a numerical value..."
+while valid?(first) != true
+  puts 'Please enter a numerical value...'
   first = gets.chomp
 end
 
-puts ">>> What should I do?\n1: Add\n2: Subtract\n3: Multiply\n4: Divide\n"
-print "(1-4): "
+puts '>>> What should I do?\n1: Add\n2: Subtract\n3: Multiply\n4: Divide\n'
+print '(1-4): '
 operator = gets.chomp.to_i
 
-while [1, 2, 3, 4].include?(operator) != true do
+while [1, 2, 3, 4].include?(operator) != true
   puts ">>> That's not a valid input! Please choose 1, 2, 3, or 4."
   operator = gets.chomp.to_i
 end
 
-puts ">>> What is the second number?"
+puts '>>> What is the second number?'
 second = gets.chomp
 
-while valid?(second) != true do
-  puts ">>> Please enter a numerical value..."
+while valid?(second) != true
+  puts '>>> Please enter a numerical value...'
   second = gets.chomp
 end
 
 first = first.to_f
 second = second.to_f
 
-puts ">>> Calculating..."
+puts '>>> Calculating...'
 case operator
 when 1
   puts first + second
