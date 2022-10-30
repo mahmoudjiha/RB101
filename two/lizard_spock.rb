@@ -40,11 +40,23 @@ def display_result(player1_score, iterator)
   end
 end
 
-def track_points(two_player_array, player1_score, iterator)
+def track_points(match_scores, player1_score, iterator)
   if player1_score[iterator - 1] == 1
-    two_player_array[0] += 1
+    match_scores[0] += 1
   elsif player1_score[iterator - 1] == -1
-    two_player_array[1] += 1
+    match_scores[1] += 1
+  end
+end
+
+def display_points(match_scores)
+  if match_scores[0] > match_scores[1]
+    prompt("Current standings are #{match_scores[0]} to #{match_scores[1]}.")
+    prompt('You are in the lead!')
+  elsif match_scores[1] > match_scores[0]
+    prompt("Current standings are #{match_scores[1]} to #{match_scores[0]}!")
+    prompt('The computer is in the lead..')
+  else
+    prompt("Current standings tied! #{match_scores[0]} to #{match_scores[1]}.")
   end
 end
 
@@ -79,6 +91,7 @@ loop do
   result(user_choice, computer_choice, user_score_each_game)
   display_result(user_score_each_game, game_number)
   track_points(match_points, user_score_each_game, game_number)
+  display_points(match_points)
 
   if match_points.include?(3)
     prompt(match_points[0] == 3 ? 'Match won!' : 'Match lost..')
@@ -87,6 +100,7 @@ loop do
     game_number += 1
   end
 
+  prompt("...")
   prompt("Would you like to play again?")
   break unless gets.chomp.downcase.start_with?('y')
 end
