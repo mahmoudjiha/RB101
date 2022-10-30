@@ -77,7 +77,6 @@ loop do
   prompt("You chose: #{user_choice}; Computer chose: #{computer_choice}.")
 
   result(user_choice, computer_choice, user_score_each_game)
-
   display_result(user_score_each_game, game_number)
   track_points(match_points, user_score_each_game, game_number)
 
@@ -91,6 +90,5 @@ loop do
   prompt("Would you like to play again?")
   break unless gets.chomp.downcase.start_with?('y')
 end
-
 
 # Note: regex would have made this a lot easier
