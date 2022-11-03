@@ -4,7 +4,7 @@ In Ruby, `!` and `?` are operators with different functions.
 
 - When `!` is prefixed to an object, expression, etc. it's the
 equivalent of something not being truthy or `false`.
-  - e.g. `name == false; name == !(1 + 2 + 3)` => true
+  - i.e. `name == false; name == !(1 + 2 + 3)` => `true`
 - `!` is also used as a suffix in method names, by convention, to indicate destructive methods that will mutate the caller or arguments. However, this is not always true.
   - The `Array#map!` method is mutating, as expected by convention.
   - However, `Array#shift` is also mutating, but is not suffixed with `!`.
@@ -30,6 +30,8 @@ in the method and will probably return `true` or `false`.
 1. `!=` is equivalent to saying 'not equal to' and should be used when an
 object needs to match a specific value.
 2. When `!` is put before something, the expression will evaluate to `false`.
+  - Solution correction: evaluates to the opposite of its boolean equivalent.
+  - Error: `!user_name` in the question was just an example
 3. When `!` is put after something, this can be a sign that a method will
 mutate the caller or arguments.
 4. When `?` is put before something, it acts as if/else statement for the
@@ -38,4 +40,4 @@ conditional statement and should be separated by a `:`.
 5. When `?` is put after something, this can be a sign that the method will
 evaluate the caller based on some conditional defined in the method and will
 likely return a boolean.
-6. When `!!` is put before something, it will always evaluate to `true`.
+6. When `!!` is put before something, it will always evaluate to its boolean.
