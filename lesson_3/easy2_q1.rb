@@ -1,4 +1,4 @@
-# easy_2_question_1.rb
+# easy2_q1.rb
 
 ages = { 'Herman' => 32, 'Lily' => 30, 'Grandpa' => 402, 'Eddie' => 10 }
 

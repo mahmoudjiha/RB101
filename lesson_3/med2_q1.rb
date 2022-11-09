@@ -1,4 +1,4 @@
-# med_2_question_1.rb
+# med2_q1.rb
 
 a = "forty two"
 b = "forty two"

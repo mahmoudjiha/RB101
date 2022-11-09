@@ -1,4 +1,4 @@
-# easy_1_question_2.md
+# easy1_q2.md
 
 In Ruby, `!` and `?` are operators with different functions.
 

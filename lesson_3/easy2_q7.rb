@@ -1,4 +1,4 @@
-# easy_2_question_7.rb
+# easy2_q7.rb
 
 flintstones = %w(Fred Barney Wilma Betty BamBam Pebbles)
 flintstones.concat(%w(Dino Hoppy))

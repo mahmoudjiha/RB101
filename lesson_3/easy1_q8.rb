@@ -1,4 +1,4 @@
-# easy_1_question_8.rb
+# easy1_q8.rb
 
 flintstones = {
   'Fred' => 0,

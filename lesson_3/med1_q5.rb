@@ -1,4 +1,4 @@
-# med_1_question_5.rb
+# med1_q5.rb
 
 LIMIT = 15 # <= refactored to constant assuming the limit should always be 15
 

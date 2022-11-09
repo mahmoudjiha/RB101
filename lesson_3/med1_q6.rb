@@ -1,4 +1,4 @@
-# med_1_question_6.rb
+# med1_q6.rb
 
 answer = 42
 

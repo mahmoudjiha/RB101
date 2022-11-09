@@ -1,4 +1,4 @@
-# med_2_question_5.rb
+# med2_q5.rb
 require 'pry'
 
 def add_rutabaga(str_or_arr)

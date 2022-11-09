@@ -1,4 +1,4 @@
-# med_2_question_6.rb
+# med2_q6.rb
 
 def color_valid(color)
   color == "blue" || color == "green"

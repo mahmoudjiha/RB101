@@ -1,4 +1,4 @@
-# med_2_question_4.rb
+# med2_q4.rb
 
 def tricky_method_two(a_string_param, an_array_param)
   a_string_param << 'rutabaga'

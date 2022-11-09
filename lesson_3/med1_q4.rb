@@ -1,4 +1,4 @@
-# med_1_question_4.rb
+# med1_q4.rb
 
 def rolling_buffer1(buffer, max_buffer_size, new_element)
   buffer << new_element

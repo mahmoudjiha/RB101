@@ -1,4 +1,4 @@
-# easy_2_question_2.rb
+# easy2_q2.rb
 
 ORIGINAL_DESCRIPTION = 'The Munsters are creepy in a good way.'
 

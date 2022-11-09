@@ -1,4 +1,4 @@
-# med_2_question_2.rb
+# med2_q2.rb
 
 a = 42
 b = 42

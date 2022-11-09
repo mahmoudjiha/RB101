@@ -1,4 +1,4 @@
-# med_1_question_3.rb
+# med1_q3.rb
 
 # def factors(number)
 #   divisor = number

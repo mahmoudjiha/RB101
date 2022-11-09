@@ -1,4 +1,4 @@
-# easy_1_question_3.rb
+# easy1_q3.rb
 
 advice = "Few things in life are as important as house
           training for your pet dinosaur."

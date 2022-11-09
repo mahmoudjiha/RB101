@@ -1,4 +1,4 @@
-# easy_2_question_9.rb
+# easy2_q9.rb
 
 statement = 'The Flintstones Rock!'
 

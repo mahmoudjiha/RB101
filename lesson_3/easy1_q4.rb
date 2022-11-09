@@ -1,4 +1,4 @@
-# easy_1_question_4.rb
+# easy1_q4.rb
 
 numbers = [1, 2, 3, 4, 5]
 

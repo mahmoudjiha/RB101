@@ -1,4 +1,4 @@
-# med_1_question_9.rb
+# med1_q9.rb
 
 def foo(param = "no")
   "yes"

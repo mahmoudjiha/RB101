@@ -1,4 +1,4 @@
-# easy_1_question_7.rb
+# easy1_q7.rb
 
 flintstones = ['Fred', 'Wilma']
 flintstones << ['Barney', 'Betty']

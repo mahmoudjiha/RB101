@@ -1,4 +1,4 @@
-# med_1_question_7.rb
+# med1_q7.rb
 
 munsters = {
   "Herman" => { "age" => 32, "gender" => "male" },

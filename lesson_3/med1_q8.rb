@@ -1,4 +1,4 @@
-# med_1_question_8.rb
+# med1_q8.rb
 
 def rps(fist1, fist2)
   if fist1 == "rock"

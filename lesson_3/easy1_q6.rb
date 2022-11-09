@@ -1,4 +1,4 @@
-# easy_1_question_6.rb
+# easy1_q6.rb
 
 # method 1
 famous_words = 'seven years ago...'

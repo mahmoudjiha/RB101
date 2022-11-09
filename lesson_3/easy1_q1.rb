@@ -1,4 +1,4 @@
-# easy_1_question_1.rb
+# easy1_q1.rb
 
 numbers = [1, 2, 2, 3]
 numbers.uniq

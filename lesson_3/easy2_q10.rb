@@ -1,4 +1,4 @@
-# easy_2_question_10.rb
+# easy2_q10.rb
 
 title = 'Flintstone Family Members'
 
