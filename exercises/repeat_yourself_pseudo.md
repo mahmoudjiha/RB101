@@ -14,7 +14,7 @@ START
 SET string_to_repeat = the provided string
 SET iterations_remaining = the provided integer
 
-WHILE iterations > 0
+WHILE iterations_remaining > 0
   PRINT string_to_repeat
 
   iterations_remaining = iterations_remaining - 1
