@@ -3,8 +3,34 @@
 ##  operation to be performed, perform the operation, and print the result to
 ##  the screen.
 
+require 'yaml'
+MESSAGES = YAML.load_file('messages.yml')
+
 def prompt(string)
   puts ">>> #{string}"
+end
+
+def format_float(string)
+  return ("#{string}0") if string[-1] == '.'
+  trailing_zeros = 0
+  decimal_digits = string.split('.').last
+
+  if string[-1] == '0'
+    iterator = 1
+    loop do
+      break if decimal_digits[-iterator] != '0'
+      trailing_zeros += 1
+      iterator += 1
+    end
+  end
+
+  final_length = string.length - trailing_zeros
+
+  if trailing_zeros == decimal_digits.length
+    string[0...(final_length + 1)]
+  else
+    string[0...final_length]
+  end
 end
 
 def valid_name?(string)
@@ -12,41 +38,46 @@ def valid_name?(string)
 end
 
 def valid_number?(string)
-  string == '0' || string.to_i != 0
+  if string.include?('.')
+    format_float(string) == string.to_f.to_s
+  else
+    string == string.to_i.to_s
+  end
 end
 
 def valid_operator?(string)
   %w(1 2 3 4).include?(string)
 end
 
-ERROR_MESSAGE = "That doesn't look like a valid input...try again"
+def convert_number(string)
+  string.include?('.') ? string.to_f : string.to_i
+end
 
-TERMS = {
-  '1' => ['add', 'to'],
-  '2' => ['subtract', 'and'],
-  '3' => ['multiply', 'with'],
-  '4' => ['divid', 'by']
-}
+def error_message(expected_input)
+  "#{MESSAGES['invalid_entry']} #{expected_input}! #{MESSAGES['try_again']}"
+end
 
-OPERATIONS = <<-STR
-      1. Addition
-      2. Subtraction
-      3. Multiplication
-      4. Division
-STR
+def result_message(number1, number2, operator, calculated_result)
+  return MESSAGES['zero_division'] if number2 == 0
 
-prompt('Welcome to Calculator!')
+  verb, modifier = MESSAGES['verbs_and_modifiers'][operator].values
+
+  "The result of #{verb} #{number1} #{modifier} " \
+    "#{number2} is: #{calculated_result.round(2)}."
+end
+
+prompt(MESSAGES['welcome'])
 name = ''
 
 loop do
-  prompt('What is your name?')
+  prompt(MESSAGES['name_prompt'])
   name = gets.chomp
 
   break if valid_name?(name)
-  prompt(ERROR_MESSAGE)
+  prompt(error_message('name'))
 end
 
-prompt("Alright #{name}, let's do this!")
+prompt("#{MESSAGES['begin']} #{name}!")
 
 loop do
   first_number = ''
@@ -54,58 +85,51 @@ loop do
   operator = ''
 
   loop do
-    prompt('What is the first number?')
+    prompt(MESSAGES['first_number'])
     first_number = gets.chomp
 
     break if valid_number?(first_number)
-    prompt(ERROR_MESSAGE)
+    prompt(error_message('number'))
   end
 
   loop do
-    prompt('What is the second number?')
+    prompt(MESSAGES['second_number'])
     second_number = gets.chomp
 
     break if valid_number?(second_number)
-    prompt(ERROR_MESSAGE)
+    prompt(error_message('number'))
   end
 
-  prompt("What operation would you like to perform?\n#{OPERATIONS}")
+  prompt(MESSAGES['which_operation'])
 
   loop do
-    prompt('Enter an integer 1-4: ')
+    prompt(MESSAGES['request_integer'])
     operator = gets.chomp
 
     break if valid_operator?(operator)
-    prompt(ERROR_MESSAGE)
+    prompt(error_message('operator'))
   end
+
+  first_number = convert_number(first_number)
+  second_number = convert_number(second_number)
 
   result = case operator
            when '1'
-             first_number.to_i + second_number.to_i
+             first_number + second_number
            when '2'
-             first_number.to_i - second_number.to_i
+             first_number - second_number
            when '3'
-             first_number.to_i * second_number.to_i
+             first_number * second_number
            when '4'
-             if second_number == '0'
-               'Zero division error!'
-             else
-               first_number.to_f / second_number.to_f
-             end
+             first_number.to_f / second_number
            end
 
-  if result.is_a?(String)
-    prompt(result)
-  else
-    prompt("The result of #{TERMS[operator].first}ing #{first_number} " \
-           "#{TERMS[operator].last} #{second_number} is: #{result.round(2)}")
-  end
+  prompt(result_message(first_number, second_number, operator, result))
 
-  prompt('Perform another calculation?')
-  print('(Y/n): ')
+  print(MESSAGES['restart_calculator'])
   user_input = gets.chomp
 
   break if user_input[0].upcase != 'Y'
 end
 
-prompt("Thank you for using Calculator, #{name}!")
+prompt("#{MESSAGES['goodbye']} #{name}!")
