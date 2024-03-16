@@ -1,0 +1,20 @@
+# loan_messages.yml
+greeting: 'Welcome to loan calculator!'
+closing: 'Thanks for using loan calculator,'
+
+result:
+  start: 'For a loan of'
+  end: 'The monthly payment will be $'
+
+input_requests:
+  total: 'Total dollar amount of the loan?'
+  apr: 'Annual percentage rate (APR) of the loan?'
+  duration: 'Duration of the loan in months?'
+  name: 'What is your name?'
+
+error_messages:
+  total: "That doesn't look right..please provide the total dollar amount of the loan."
+  apr: "Invalid apr...please make sure you are entering a percentage value."
+  duration: 'Something went wrong! Please enter the duration of the loan in months.'
+  name: "I wasn't able to understand that name, please try again."
+
