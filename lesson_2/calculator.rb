@@ -4,7 +4,7 @@
 ##  the screen.
 
 require 'yaml'
-MESSAGES = YAML.load_file('messages.yml')
+MESSAGES = YAML.load_file('calculator_prompts.yml')
 
 def prompt(string)
   puts ">>> #{string}"
