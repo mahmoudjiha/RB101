@@ -30,9 +30,13 @@ def print_in_box(text)
   end
 
   text_lines.each do |element|
-    until element.size == 76 || element.size == size
-      element.insert(0, ' ')
-      element.insert(-1, ' ')
+    if element.size < 76 && element.size != size
+      loop do
+        element.insert(0, ' ')
+        break if element.size == size || element.size == 76
+        element.insert(-1, ' ')
+        break if element.size == size || element.size == 76
+      end
     end
   end
 
@@ -62,3 +66,9 @@ print_in_box('')
 print_in_box("How much wood could a woodchuck chuck if a woodchuck " \
              "could chuck wood? As much wood as a woodchuck could " \
              "chuck, if a woodchuck could chuck wood!")
+print_in_box("Hello, my name is George! What is your name? " \
+             "It is a pleasure to meet you!!")
+
+# extract to methods
+# reduce complexity
+# adapt to not split words apart
