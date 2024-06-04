@@ -58,13 +58,12 @@ def obtain_value(type)
   loop do
     prompt(MESSAGES['input_requests'][type])
     value = gets.chomp
-    
-    if %w(total apr duration).include?(type) && valid_number?(value)
-      break
-    elsif type == 'name' && valid_name?(value)
-      break
-    end
 
+    if %w(total apr duration).include?(type)
+      break if valid_number?(value)
+    elsif type == 'name'
+      break if valid_name?(value)
+    end
     display_error_message(type)
   end
 
@@ -78,11 +77,11 @@ end
 def calculate_monthly_payment(total, annual_percentage, months)
   monthly_rate = convert_to_monthly_proportion(annual_percentage)
 
-  total * (monthly_rate / (1 - (1 + monthly_rate)**(-months)))
+  total * (monthly_rate / (1 - ((1 + monthly_rate)**(-months))))
 end
 
-def print_greeting_or_closing(type, name = false)
-  if name
+def print_greeting_or_closing(type, name = 'Bob')
+  if type == 'closing'
     prompt("#{MESSAGES[type]} #{name}!")
   else
     prompt(MESSAGES[type])
@@ -91,20 +90,27 @@ end
 
 def print_result(total, annual_percentage, months)
   payment = calculate_monthly_payment(total, annual_percentage, months)
-  result = "#{MESSAGES['result']['start']} $#{total} with "\
-           "#{annual_percentage}% APR paid over #{months} months, "\
+  result = "#{MESSAGES['result']['start']} $#{total} with " \
+           "#{annual_percentage}% APR paid over #{months} months, " \
            "the monthly payment will be $#{format('%.2f', payment)}!"
 
   prompt(result)
 end
 
-
+# main loop
 print_greeting_or_closing('greeting')
-
 name = obtain_value('name')
-loan_total = obtain_value('total')
-apr = obtain_value('apr')
-duration_in_months = obtain_value('duration')
 
-print_result(loan_total, apr, duration_in_months)
+loop do
+  loan_total = obtain_value('total')
+  apr = obtain_value('apr')
+  duration_in_months = obtain_value('duration')
+
+  print_result(loan_total, apr, duration_in_months)
+
+  prompt(MESSAGES['restart_calculator'])
+  answer = gets.chomp
+  break unless answer.downcase.start_with?('y')
+end
+
 print_greeting_or_closing('closing', name)

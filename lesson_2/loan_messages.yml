@@ -1,6 +1,7 @@
 # loan_messages.yml
 greeting: 'Welcome to loan calculator!'
 closing: 'Thanks for using loan calculator,'
+restart_calculator: 'Would you like to perform another calculation?'
 
 result:
   start: 'For a loan of'
