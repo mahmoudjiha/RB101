@@ -6,13 +6,11 @@ def prompt(string)
 end
 
 def compute_sum(number)
-  1.upto(number).sum
+  1.upto(number).inject(:+)
 end
 
 def compute_product(number)
-  result = 1
-  1.upto(number).each { |x| result *= x }
-  result
+  1.upto(number).inject(:*)
 end
 
 def valid_operation?(operator)
