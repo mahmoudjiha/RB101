@@ -35,7 +35,7 @@ NUM_WORDS = {
   16 => 'sixteen',
   17 => 'seventeen',
   18 => 'eighteen',
-  19 => 'ninteen',
+  19 => 'nineteen'
 }
 
 def alphabetic_number_sort(numbers)
